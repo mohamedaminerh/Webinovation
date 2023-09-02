@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webinovation - Accueil</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Styles personnalisés */
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: #f8f9fa;
+    }
+
+    /* Menu sticky */
+    .sticky-top {
+      position: sticky;
+      top: 0;
+      background-color: #222;
+      z-index: 1000;
+    }
+
+    /* Animation de couleur en arrière-plan */
+    body {
+      background: linear-gradient(45deg, #f06, #09f, #f06);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      transition: background-color 0.5s ease;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Conteneur principal */
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Sections de contenu */
+    .content-section {
+      padding: 100px 0;
+    }
+
+    /* Animation de texte */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Appliquer l'animation de texte aux éléments */
+    .animated-text {
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    /* Boutons stylisés */
+    .btn-primary {
+      background-color: #09f;
+      border-color: #09f;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #07d;
+      border-color: #07d;
+    }
+
+    .btn-secondary {
+      background-color: #333;
+      border-color: #333;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #222;
+      border-color: #222;
+    }
+
+    /* Pied de page */
+    .footer {
+      background-color: #222;
+      color: white;
+      padding: 80px 0;
+    }
+
+    /* Éléments interactifs */
+    .interactive-element {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .interactive-element:hover {
+      transform: scale(1.05);
+    }
+
+    /* Ombre portée */
+    .shadowed {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styles spécifiques pour le site */
+    .section-title {
+      color: #222;
+      font-size: 3rem;
+      margin-bottom: 30px;
+    }
+
+    .section-subtitle {
+      color: #555;
+      font-size: 1.5rem;
+      margin-bottom: 50px;
+    }
+
+    .testimonial-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* Animation de zoom pour les images */
+    .zoomable-image {
+      transition: transform 0.3s ease;
+    }
+
+    .zoomable-image:hover {
+      transform: scale(1.05);
+    }
+
+    /* Styles pour les éléments de carrousel */
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .carousel-caption {
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      padding: 20px;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      text-align: left;
+    }
+
+    .carousel-caption h5 {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 1.8rem;
+    }
+
+    .carousel-caption p {
+      color: #f9f9f9;
+      font-size: 1.2rem;
+    }
+
+    /* Animation de survol pour les témoignages */
+    .testimonial-card {
+      transform: translateY(0);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* Boutons ronds stylisés */
+    .rounded-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #09f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .rounded-button:hover {
+      background-color: #07d;
+      transform: scale(1.1);
+    }
+
+    /* Section de témoignages */
+    .testimonials-section {
+      background-color: #fff;
+      padding: 120px 0;
+    }
+
+    .testimonial-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial-text {
+      font-size: 1.8rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .testimonial-author {
+      font-size: 1.5rem;
+      color: #777;
+    }
+
+    /* Carrousel de témoignages */
+    .testimonial-carousel .carousel-inner {
+      margin-top: 40px;
+    }
+
+    .testimonial-carousel .carousel-indicators {
+      margin-bottom: 0;
+    }
+
+    .testimonial-carousel .carousel-control-prev,
+    .testimonial-carousel .carousel-control-next {
+      width: auto;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .testimonial-carousel .carousel-control-prev:hover,
+    .testimonial-carousel .carousel-control-next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .testimonial-carousel .carousel-control-prev-icon,
+    .testimonial-carousel .carousel-control-next-icon {
+      background-color: white;
+      width: 30px;
+      height: 30px;
+    }
+
+    .testimonial-carousel .carousel-control-prev-icon:before,
+    .testimonial-carousel .carousel-control-next-icon:before {
+      content: '\2039'; /* Code Unicode pour la flèche vers la gauche */
+      font-size: 24px;
+      color: #555;
+    }
+
+    .testimonial-carousel .carousel-control-next-icon:before {
+      content: '\203a'; /* Code Unicode pour la flèche vers la droite */
+    }
+
+    /* Effet parallaxe */
+    .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 100px 0;
+    }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.htm">
+      <img src="C:\Users\rhall\OneDrive\Images\Captures d’écran\Capture d'écran 2023-08-30 005700.png" alt="Logo" width="50">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#start">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Nos Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#testimonials">Témoignages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Nous Contacter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <section id="start" class="content-section parallax" style="background-image: url('https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/8/8/1/881415294f_50170557_code-html-sashkin-adobe-stock.jpg');">
+    <div class="text-center animated-text">
+      <h1 class="display-4 section-title text-white">Bienvenue chez Webinovation</h1>
+      <p class="lead section-subtitle text-white">Nous sommes une équipe de développeurs passionnés par la création de sites Web exceptionnels.</p>
+      <a href="#services" class="btn btn-primary btn-lg">Découvrir nos Services</a>
+    </div>
+  </section>
+
+  <section id="services" class="content-section bg-light">
+    <div class="text-center animated-text">
+      <h2 class="section-title">Nos Services</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <h3>Développement Front-End</h3>
+          <p>Nous créons des interfaces utilisateur attrayantes et réactives en utilisant les dernières technologies web.</p>
+          <a href="#contact" class="btn btn-secondary">Nous Contacter</a>
+        </div>
+        <div class="col-lg-4">
+          <h3>Développement Back-End</h3>
+          <p>Notre équipe de back-end construit des systèmes robustes et évolutifs pour soutenir vos applications.</p>
+          <a href="#contact" class="btn btn-secondary">Nous Contacter</a>
+        </div>
+        <div class="col-lg-4">
+          <h3>Conception UI/UX</h3>
+          <p>Nous concevons des expériences utilisateur intuitives et engageantes pour maximiser la satisfaction des utilisateurs.</p>
+          <a href="#contact" class="btn btn-secondary">Nous Contacter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="content-section">
+    <div class="text-center animated-text">
+      <h2 class="section-title">Portfolio</h2>
+      <div id="portfolio-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="C:\Users\rhall\Documents\MonSiteWeb\Capture d'écran 2023-09-02 134818.png" class="d-block mx-auto zoomable-image" alt="Projet 1">
+            <div class="carousel-caption">
+              <h5>code du site Webinovation</h5>
+              <p></p>
+              <a href="#" class="btn btn-secondary">En savoir plus</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="C:\Users\rhall\Documents\MonSiteWeb\Capture d'écran 2023-09-02 134718.png" class="d-block mx-auto zoomable-image" alt="Projet 2">
+            <div class="carousel-caption">
+              <h5>code d'un site de restaurant </h5>
+              <p></p>
+              <a href="#" class="btn btn-secondary">En savoir plus</a>
+            </div>
+          </div>
+          <!-- Ajoutez d'autres projets ici -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#portfolio-carousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Précédent</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#portfolio-carousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Suivant</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials-section">
+    <div class="text-center animated-text">
+      <h2 class="section-title">Témoignages</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <div class="testimonial-carousel carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="testimonial-card shadowed p-4">
+                    <p class="testimonial-text">"Webinovation a su donner vie à notre vision avec créativité et professionnalisme."</p>
+                    <p class="testimonial-author"><em>- Marie -</em></p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="testimonial-card shadowed p-4">
+                    <p class="testimonial-text">"Travailler avec Webinovation a été une expérience incroyable. Leur équipe est compétente et réactive."</p>
+                    <p class="testimonial-author"><em>- Antoine -</em></p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="testimonial-card shadowed p-4">
+                    <p class="testimonial-text">"Webinovation a dépassé nos attentes à chaque étape du projet. Nous les recommandons vivement."</p>
+                    <p class="testimonial-author"><em>- Charlotte -</em></p>
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+              </a>
+              <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="content-section">
+    <div class="text-center animated-text">
+      <h2 class="section-title">Nous Contacter</h2>
+      <p>Vous avez des questions ou un projet en tête ? Contactez-nous dès aujourd'hui pour discuter de vos besoins.</p>
+      <p><strong>Email:</strong> webinovation149@gmail.com</p>
+      <p><strong>Téléphone:</strong> 0749173643</p>
+      <a href="#start" class="btn btn-primary">Retour à l'Accueil</a>
+    </div>
+  </section>
+</div>
+
+<!-- Pied de page -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <h3>À Propos de Nous</h3>
+        <p>Nous sommes une équipe de développeurs passionnés par la création de sites Web exceptionnels.</p>
+      </div>
+      <div class="col-lg-4">
+        <h3>Nos Services</h3>
+        <ul class="list-unstyled">
+          <li><a href="#services">Développement Front-End</a></li>
+          <li><a href="#services">Développement Back-End</a></li>
+          <li><a href="#services">Conception UI/UX</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h3>Nous Contacter</h3>
+        <p><strong>Email:</strong> webinovation149@gmail.com</p>
+        <p><strong>Téléphone:</strong> 0749173643</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
